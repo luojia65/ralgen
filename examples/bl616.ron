@@ -1,0 +1,19 @@
+Chip(
+    name: bl616,
+    docs: "Bouffalo BL616 WiFi6 chip",
+    peripherals: {
+        UART1: Struct(0x2000A100, Uart, "Universal Asynchronous Receiver Transmitter 1"),
+        UART0: Struct(0x2000A000, Uart, "Universal Asynchronous Receiver Transmitter 0"),
+    },
+    interrupt: (
+        name: Clint,
+        address: 0x10000000,
+        numbers: {
+            28: UART0,
+            29: UART1,
+        }
+    ),
+    structs: {
+        Uart: File("uart.ron"),
+    },
+)

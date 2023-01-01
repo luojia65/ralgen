@@ -1,0 +1,19 @@
+Peripheral(
+    docs: "Universal Asynchronous Receiver Transmitter",
+    registers: {
+        0x00: (
+            name: TransmitConfig,
+            docs: "Transmit configuration register",
+            fields: {
+                0: EnumEnable(function, "Transmit function"),
+                1: EnumEnable(cts, "Clear-to-Send flow control signal"),
+                2: EnumEnable(freerun, "Freerun mode"),
+                3: EnumEnable(lin, "Local Interconnect Network protocol"),
+            },
+        ),
+        0x04: (
+            name: ReceiveConfig,
+            docs: "Receive configuration register",
+        ),
+    },
+)
