@@ -15,6 +15,7 @@ Chip(
     interrupt: (
         name: Clic,
         address: 0x10000000,
+        priority_bits: 4,
         numbers: {
             28: UART0,
             29: UART1,
