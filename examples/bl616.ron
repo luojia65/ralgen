@@ -1,16 +1,16 @@
 Chip(
     name: bl616,
     docs: "Bouffalo BL616 WiFi6 chip",
-    harts: {
-        0: E906(CPU, "T-Head E906"),
+    cores: {
+        0: (E906, "T-Head E906"),
     },
     address_space: {
-        0x2000A000: Uart(UART0, "Universal Asynchronous Receiver Transmitter 0"),
-        0x2000A100: Uart(UART1, "Universal Asynchronous Receiver Transmitter 1"),
-        0x22FC0000: Ocram(OCRAM_NOCACHE),
-        0x23010000: Wram(WRAM_NOCACHE),
-        0x62FC0000: Ocram(OCRAM_CACHE),
-        0x63010000: Wram(WRAM_CACHE),
+        0x2000A000: (Uart, UART0, "Universal Asynchronous Receiver Transmitter 0"),
+        0x2000A100: (Uart, UART1, "Universal Asynchronous Receiver Transmitter 1"),
+        0x22FC0000: (Ocram, OCRAM_NOCACHE),
+        0x23010000: (Wram, WRAM_NOCACHE),
+        0x62FC0000: (Ocram, OCRAM_CACHE),
+        0x63010000: (Wram, WRAM_CACHE),
     },
     interrupt: (
         name: Clic,
@@ -22,10 +22,10 @@ Chip(
         }
     ),
     structs: {
-        E906: IncludeFile("e906.ron"),
-        Clic: IncludeFile("clic.ron"),
-        Uart: IncludeFile("uart.ron"),
-        Ocram: RandomMemory("320KB"),
-        Wram: RandomMemory("160KB"),
+        E906: (IncludeFile, "e906.ron"),
+        Clic: (IncludeFile, "clic.ron"),
+        Uart: (IncludeFile, "uart.ron"),
+        Ocram: (RandomMemory, "320KB"),
+        Wram: (RandomMemory, "160KB"),
     },
 )

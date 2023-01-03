@@ -2,11 +2,11 @@ use std::collections::HashMap;
 
 pub struct Ir {
     cores: HashMap<String, Core>,
-    peripherals: HashMap<String, Peripheral>,
+    address_space: HashMap<String, Peripheral>,
     structs: HashMap<String, Struct>,
 }
 
-/// Logical processor
+/// Logical processor. On RISC-V, it core
 pub struct Core {
 
 }
