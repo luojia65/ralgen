@@ -1,10 +1,11 @@
 Chip(
-    name: bl616,
+    name: "bl616",
     docs: "Bouffalo BL616 WiFi6 chip",
     cores: {
         0: (E906, "T-Head E906"),
     },
     address_space: {
+        0x10000000: (Clic, CLIC, "Core-local Interrupt Controller")
         0x2000A000: (Uart, UART0, "Universal Asynchronous Receiver Transmitter 0"),
         0x2000A100: (Uart, UART1, "Universal Asynchronous Receiver Transmitter 1"),
         0x22FC0000: (Ocram, OCRAM_NOCACHE),
@@ -13,15 +14,14 @@ Chip(
         0x63010000: (Wram, WRAM_CACHE),
     },
     interrupt: (
-        name: Clic,
-        address: 0x10000000,
+        name: CLIC,
         priority_bits: 4,
         numbers: {
             28: UART0,
             29: UART1,
         }
     ),
-    structs: {
+    types: {
         E906: (IncludeFile, "e906.ron"),
         Clic: (IncludeFile, "clic.ron"),
         Uart: (IncludeFile, "uart.ron"),
